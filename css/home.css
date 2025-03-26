@@ -23,21 +23,6 @@
   margin-bottom: 20px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input,
-textarea,
-select {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
 .message {
   background-color: var(--random-color);
   padding: 1rem;
@@ -91,9 +76,5 @@ select {
   margin: 10px auto;
   width: 90%;
   border-radius: 5px;
-  display: none;
-}
-
-.hidden {
   display: none;
 }
