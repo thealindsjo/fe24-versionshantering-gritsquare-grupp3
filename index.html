@@ -41,26 +41,29 @@
         </div>
       </nav>
     </header>
+    
     <main>
-      <div id="controls-container">
-        <section id="addMessage">
-          <form id="addMessage">
-            <input type="text" name="name" placeholder="Ditt namn..." required />
-            <textarea
-              name="message"
-              placeholder="Text..."
-              required
-            ></textarea>
-            <button type="submit">Lägg till</button>
-          </form>
+      <div class="content">
+        <div id="controls-container">
+          <section id="addMessage">
+            <form id="addMessage">
+              <input type="text" name="name" placeholder="Ditt namn..." required />
+              <textarea
+                name="message"
+                placeholder="Text..."
+                required
+              ></textarea>
+              <button type="submit">Lägg till</button>
+            </form>
+          </section>
+        </div>
+  
+        <section id="board">
+          <div id="errorMessage" class="hidden"></div>
+          <div class="messageColumn">
+          </div>
         </section>
       </div>
-
-      <section id="board">
-        <div id="errorMessage" class="hidden"></div>
-        <div class="messageColumn">
-        </div>
-      </section>
     </main>
     <footer>
       <div class="footer-container">
