@@ -1,3 +1,165 @@
 @import url("home.css");
 @import url("aboutUs.css");
 @import url("contacts.css");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+#contentContainer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0 4px;
+  justify-content: flex-start;
+}
+
+.flex-gallery {
+  display: flex;
+  justify-content: space-between;
+  max-width: 50%;
+  margin: auto;
+}
+
+section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* ========== Navigation ========== */
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  max-width: 100%;
+  width: 100%;
+}
+.header-container {
+  display: flex;
+  align-self: flex-start;
+  width: 15%;
+  max-width: 15%;
+}
+.header-container a {
+  text-decoration: none;
+  color: black;
+}
+#logo-text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-height: 100%;
+}
+.nav_ {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.toggleMenu {
+  display: flex;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.toggleDiv {
+  display: flex;
+  align-self: flex-end;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 85px;
+  right: 30px; 
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.menu.active {
+  display: flex;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.myContent {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 1%;
+  margin: 5%;
+  max-width: 200px;
+}
+
+.myContent:hover {
+  opacity: 0.7;
+}
+
+
+
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #f39c12;
+}
