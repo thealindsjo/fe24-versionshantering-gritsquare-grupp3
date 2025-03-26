@@ -5,50 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="./modules/main.js" type="module" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+    />
     <title>Document</title>
   </head>
 
   <body>
-    <main>
-      <header>
-        <nav>
-            <div class="nav_">
-                <div class="header-container">
-                    <div class="logo-container">
-                        <div class="logo-img">
-                            <a href="./index.html">
-                                <i class="fa-brands fa-rocketchat"></i>
-                        </div>
-                        <div id="text">
-                            <h2>text</h2>
-                        </div>
-                        </a>
-                    </div>
+    <header>
+      <nav>
+        <div class="nav_">
+          <div class="header-container">
+            <div class="logo-container">
+              <a href="./index.html">
+                <div>
+                  <i class="fa-brands fa-rocketchat"></i>
                 </div>
-                <div class="toggleMenu">
-                    <i class="fas fa-bars"></i>
+                <div id="text">
+                  <h2>text</h2>
                 </div>
-                <div class="menu">
-                    <div><a href="./index.html">Home</a></div>
-                    <div><a href="./contacts.html">Contacts</a></div>
-                    <div><a href="./aboutUs.html">About Us</a></div>
-                </div>
+              </a>
             </div>
-        </nav>
+          </div>
+          <div class="toggleMenu">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="menu">
+            <div><a href="./index.html">Home</a></div>
+            <div><a href="./contacts.html">Contacts</a></div>
+            <div><a href="./aboutUs.html">About Us</a></div>
+          </div>
+        </div>
+      </nav>
     </header>
+    
+    <main>
+      <div class="content">
+        <div id="controls-container">
+          <section id="addMessage">
+            <form id="addMessage">
+              <input type="text" name="name" placeholder="Ditt namn..." required />
+              <textarea
+                name="message"
+                placeholder="Text..."
+                required
+              ></textarea>
+              <button type="submit">Lägg till</button>
+            </form>
+          </section>
+        </div>
+  
+        <section id="board">
+          <div id="errorMessage" class="hidden"></div>
+          <div class="messageColumn">
+          </div>
+        </section>
+      </div>
     </main>
     <footer>
       <div class="footer-container">
-          <p>&copy; 2025 Grupp 3 - All Rights Reserved</p>
-          <div class="social-icons">
-              <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-              <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-          </div>
+        <p>&copy; 2025 Grupp 3 - All Rights Reserved</p>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="https://twitter.com" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://instagram.com" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
       </div>
-  </footer>
+    </footer>
   </body>
 </html>

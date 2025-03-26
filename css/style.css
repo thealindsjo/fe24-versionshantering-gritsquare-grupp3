@@ -13,8 +13,8 @@ body {
   line-height: 1.6;
 }
 
-main {
-  max-width: 1200px;
+main, header{
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
   position: relative;
@@ -44,7 +44,6 @@ section {
   margin-bottom: 20px;
 }
 
-/* ========== Navigation ========== */
 .logo-container {
   display: flex;
   justify-content: space-between;
@@ -119,21 +118,6 @@ section {
 .menu a:hover {
   background-color: #f0f0f0;
 }
-
-.myContent {
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-  padding: 1%;
-  margin: 5%;
-  max-width: 200px;
-}
-
-.myContent:hover {
-  opacity: 0.7;
-}
-
-
 
 footer {
   background-color: #222;

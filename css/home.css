@@ -1,0 +1,99 @@
+#board {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.column {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 8px;
+  min-width: 250px;
+  flex: 1;
+  margin: 10px;
+}
+
+.content {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+textarea,
+select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.message {
+  background-color: var(--random-color);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  transform: rotate(var(--random-rotation));
+  font-family: "Arial", sans-serif;
+  max-width: 250px;
+  text-align: center;
+  font-size: 1rem;
+  position: relative;
+}
+
+.message::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  top: -5px;
+  left: 30%;
+  transform: skewX(-20deg);
+}
+
+.message:nth-child(odd) {
+  --random-rotation: -2deg;
+}
+.message:nth-child(even) {
+  --random-rotation: 2deg;
+}
+
+#controls-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#controls-container section {
+  flex: 1;
+  min-width: 280px;
+  margin: 5px;
+}
+
+#errorMessage {
+  background-color: #e74c3c;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin: 10px auto;
+  width: 90%;
+  border-radius: 5px;
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
