@@ -1,6 +1,15 @@
 const BaseUrl = 'https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/users';
 
 
+export async function getAllUsers(){
+    const url = BaseUrl +'.json'
+
+    const res = await fetch(url);
+    const userObj = await res.json();
+
+    return userObj;
+}
+
 export async function postUser(user) {
     const url = BaseUrl + '.json';
 
@@ -17,7 +26,7 @@ export async function postUser(user) {
     //console.log(data);
 }
 
-
+/** 
 export async function postMessage(message) {
     const url = BaseUrl + '.json';
 
@@ -33,3 +42,5 @@ export async function postMessage(message) {
     const data = await res.json();
     //console.log(data);
 }
+    **/
+
