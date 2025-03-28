@@ -2,6 +2,36 @@
 @import url("aboutUs.css");
 @import url("contacts.css");
 
+/* Theme variables */
+:root {
+  /* Light theme (default) */
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --section-bg: #dbdbdb;
+  --nav-bg: #dbdbdb;
+  --menu-bg: #f9f9f9;
+  --border-color: #ddd;
+  --input-bg: #fff;
+  --button-bg: #000;
+  --button-text: #f9f9f9;
+  --button-hover-bg: #e4e4e4;
+  --button-hover-text: #000;
+}
+
+.dark-theme {
+  --bg-color: #222;
+  --text-color: #f9f9f9;
+  --section-bg: #333;
+  --nav-bg: #333;
+  --menu-bg: #333;
+  --border-color: #444;
+  --input-bg: #444;
+  --button-bg: #666;
+  --button-text: #f9f9f9;
+  --button-hover-bg: #888;
+  --button-hover-text: #fff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +41,9 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 main,
@@ -44,7 +77,7 @@ header {
 }
 
 section {
-  background-color: #dbdbdb;
+  background-color: var(--section-bg);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -65,7 +98,7 @@ section {
   display: flex;
   align-items: center;
   gap: 50px;
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
 }
 
@@ -82,7 +115,7 @@ section {
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background-color: #dbdbdb;
+  background-color: var(--nav-bg);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   justify-content: space-between;
@@ -106,7 +139,7 @@ section {
   position: absolute;
   top: 85px;
   right: 30px;
-  background-color: #f9f9f9;
+  background-color: var(--menu-bg);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 10px;
@@ -119,13 +152,13 @@ section {
 
 .menu a {
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
   font-size: 18px;
   padding: 10px;
 }
 
 .menu a:hover {
-  background-color: #f0f0f0;
+  background-color: var(--hover-bg, #f0f0f0);
 }
 
 form {
@@ -141,22 +174,25 @@ label {
 input,
 textarea {
   padding: 10px;
-  border: 1px solid #ddd;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 1rem;
 }
 
 button {
-  background-color: rgb(0, 0, 0);
-  color: #f9f9f9;
+  background-color: var(--button-bg);
+  color: var(--button-text);
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
+
 button:hover {
-  background-color: #e4e4e4;
-  color: rgb(0, 0, 0);
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
 }
 
 footer {
@@ -188,6 +224,19 @@ footer {
   color: #f39c12;
 }
 
+/* Theme toggle button styling */
+.theme-toggle {
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+  margin-left: auto;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
 @media screen and (min-width: 480px) {
   .content {
     display: flex;
@@ -208,7 +257,7 @@ footer {
     width: 35%;
     margin-right: 25px;
   }
-  #bord{
+  #bord {
     width: 100%;
   }
 }
