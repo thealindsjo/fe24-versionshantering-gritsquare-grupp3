@@ -1,4 +1,5 @@
-import {postUser} from './firebase.js';
+import {postUser, getAllUsers} from './firebase.js';
+import {messageDiv, displayAllUsers} from './display.js';
 
 const toggleMenu = document.querySelector(".toggleMenu");
 const menu = document.querySelector(".menu");
@@ -23,5 +24,7 @@ messageForm.addEventListener('submit', async event => {
     userMessage,
   }
   await postUser(userObj);
+  const users = await getAllUsers();
+  displayAllUsers(users);
   //await postMessage(Obj);
 });
