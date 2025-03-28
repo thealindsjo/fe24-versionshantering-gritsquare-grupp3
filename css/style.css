@@ -205,4 +205,11 @@ footer {
     min-width: 400px;
     min-height: 350px;
   }
+  #controls-container {
+    width: 35%;
+    margin-right: 25px;
+  }
+  #bord{
+    width: 100%;
+  }
 }
