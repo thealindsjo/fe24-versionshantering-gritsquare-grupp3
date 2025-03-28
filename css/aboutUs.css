@@ -4,14 +4,7 @@ ul {
 
 .team-container {
   text-align: center;
-  padding: 40px 20px;
   background-color: #f9f9f9;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
 }
 
 .team-members {
