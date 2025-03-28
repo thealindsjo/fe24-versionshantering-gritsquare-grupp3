@@ -61,6 +61,10 @@ messageForm.addEventListener("submit", async (event) => {
     console.error("Failed to post message");
     alert("Failed to post message, please try again");
   }
+
+  messageForm.reset();
 });
+
+
 
 displayAllUsers(await getAllUsers());
