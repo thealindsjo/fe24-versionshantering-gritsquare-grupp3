@@ -1,4 +1,4 @@
-import { getAllUsers } from "./firebase.js";
+import { getAllUsers, patchBanned } from "./firebase.js";
 
 export const messageDiv = document.getElementById("messageColumn");
 
@@ -57,5 +57,32 @@ export function displayAllUsers(userObj) {
 
     // Add the finished message to the main container
     messageDiv.appendChild(messageContainer);
+
+    userHeader.addEventListener("click", async (event) => {
+        event.preventDefault();
+  
+        document.querySelectorAll(".ban-button").forEach((btn) => btn.remove());
+  
+        if (!userHeader.querySelector(".ban-button")) {
+          const banButton = document.createElement("button");
+          banButton.className = "ban-button";
+          banButton.innerText = "Ban";
+          userHeader.appendChild(banButton);
+  
+          banButton.addEventListener("click", async (event) => {
+            event.preventDefault();
+            const confirmBan = confirm("Do you want to ban this user?");
+            if (confirmBan) {
+              await patchBanned(firebaseID, true); 
+              const users = await getAllUsers();
+              displayAllUsers(users); 
+            }
+            else {
+                const users = await getAllUsers();
+              displayAllUsers(users); 
+              }
+          });
+        }
+      });
+    }
   }
-}
