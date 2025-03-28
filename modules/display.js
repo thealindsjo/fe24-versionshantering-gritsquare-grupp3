@@ -56,7 +56,10 @@ export function displayAllUsers(userObj) {
     messageContainer.appendChild(messageContent);
 
     // Add the finished message to the main container
-    messageDiv.appendChild(messageContainer);
+    //messageDiv.appendChild(messageContainer);
+
+    //asked chatGPT for a solution to add messages newest to oldest without having to use Arrays instead of objects
+    messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
 
     userHeader.addEventListener("click", async (event) => {
         event.preventDefault();
