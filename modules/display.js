@@ -6,11 +6,31 @@ export function displayAllUsers(userObj) {
   // Clear the message container
   messageDiv.innerHTML = "";
 
+  // Array of pleasant, readable background colors for messages
+  const colors = [
+    "#FFD6A5", // Light orange
+    "#CAFFBF", // Light green
+    "#9BF6FF", // Light blue
+    "#BDB2FF", // Light purple
+    "#FFC6FF", // Light pink
+    "#FDFFB6", // Light yellow
+    "#A0C4FF", // Light sky blue
+    "#FFADAD", // Light red
+    "#D7E3FC", // Very light blue
+    "#E2CFC4", // Light brown
+    "#F1C0E8", // Light magenta
+    "#CFBAF0", // Lavender
+  ];
+
   for (const firebaseID in userObj) {
     // Create a message container for each user
     const messageContainer = document.createElement("div");
     messageContainer.className = "message";
     messageContainer.id = firebaseID;
+
+    // Assign a random color to this message
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    messageContainer.style.setProperty("--random-color", randomColor);
 
     // Create and style the username element
     const userHeader = document.createElement("div");
