@@ -1,13 +1,22 @@
 const BaseUrl = 'https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/users';
 
 
-export async function getAllUsers(){
-    const url = BaseUrl +'.json'
+export async function getAllUsers() {
+    const url = BaseUrl + '.json';
 
-    const res = await fetch(url);
-    const userObj = await res.json();
+    try {
+        const res = await fetch(url);
 
-    return userObj;
+        if (!res.ok) {
+            throw new Error(`Failed to fetch users: ${res.status} ${res.statusText}`);
+        }
+
+        const userObj = await res.json();
+        return userObj;
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        return null; 
+    }
 }
 
 export async function postUser(user) {
@@ -19,28 +28,19 @@ export async function postUser(user) {
         headers: {
             'Content-type': 'application/json'
         }
-    }
+    };
 
-    const res = await fetch(url, options);
-    const data = await res.json();
-    //console.log(data);
-}
+    try {
+        const res = await fetch(url, options);
 
-/** 
-export async function postMessage(message) {
-    const url = BaseUrl + '.json';
-
-    const options = {
-        method: 'POST',
-        body: JSON.stringify(message),
-        headers: {
-            'Content-type': 'application/json'
+        if (!res.ok) {
+            throw new Error(`Failed to post user: ${res.status} ${res.statusText}`);
         }
+
+        const data = await res.json();
+        return data; 
+    } catch (error) {
+        console.error('Error posting user:', error);
+        return null; 
     }
-
-    const res = await fetch(url, options);
-    const data = await res.json();
-    //console.log(data);
 }
-    **/
-

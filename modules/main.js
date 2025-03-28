@@ -9,8 +9,13 @@ toggleMenu.addEventListener("click", () => {
   menu.classList.toggle("active");
 });
 
+
+/** 
 messageForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+
+  var audio = new Audio('audio/pop-feature.mp3');
+  audio.play();
 
   const userName = document.getElementById("user-name").value;
   const userMessage = document.getElementById("user-message").value;
@@ -25,6 +30,35 @@ messageForm.addEventListener("submit", async (event) => {
   const users = await getAllUsers();
   displayAllUsers(users);
   //await postMessage(Obj);
+});
+
+displayAllUsers(await getAllUsers());
+**/
+
+messageForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const userName = document.getElementById("user-name").value;
+  const userMessage = document.getElementById("user-message").value;
+
+  console.log(userName, userMessage);
+
+  const userObj = {
+    userName,
+    userMessage,
+  };
+
+  const response = await postUser(userObj);
+
+  if (response) { 
+    var audio = new Audio('audio/pop-feature.mp3');
+    audio.play();
+    
+    const users = await getAllUsers();
+    displayAllUsers(users);
+  } else {
+    console.error("Failed to post message");
+  }
 });
 
 displayAllUsers(await getAllUsers());
