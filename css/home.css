@@ -78,3 +78,19 @@
   border-radius: 5px;
   display: none;
 }
+
+.user-header {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color, #eee);
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--text-color, #333);
+}
+
+.message-content {
+  color: var(--text-color, #333);
+}
