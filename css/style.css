@@ -48,31 +48,36 @@ section {
   margin-bottom: 20px;
 }
 
-.logo-container {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  max-width: 100%;
-  width: 100%;
-}
 .header-container {
   display: flex;
   align-self: flex-start;
-  width: 15%;
-  max-width: 15%;
 }
-.header-container a {
-  text-decoration: none;
-  color: black;
+
+
+.logo-container {
+  display: flex;
+  align-items: center; 
 }
-#logo-text {
+
+.logo-link {
   display: flex;
   align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  max-height: 100%;
+  gap: 50px; 
+  color: black;
+  text-decoration: none;
 }
+
+.logo {
+  font-size: 2rem;
+}
+
+#logo-text {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
+
 .nav_ {
   display: flex;
   align-items: center;
