@@ -6,7 +6,7 @@
 }
 
 .column {
-  background-color: #f9f9f9;
+  background-color: #dbdbdb;
   border: 1px solid #eee;
   padding: 15px;
   border-radius: 8px;
@@ -48,6 +48,19 @@
 }
 .message:nth-child(even) {
   --random-rotation: 2deg;
+}
+
+.removeButton {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.removeButton i {
+  font-size: 1.7em;
 }
 
 #controls-container {
