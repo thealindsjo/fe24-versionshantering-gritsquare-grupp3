@@ -109,15 +109,8 @@ export function displayAllUsers(userObj) {
     }
 }
 
-//Lägg till removeMessageById-funktionen
 export async function removeMessageById(id) {
     try {
-        // Antag att du använder Firebase Realtime Database
-        // const messageRef = ref(database, `users/${id}`);
-        // await set(messageRef, null);
-        // console.log(`Message with ID: ${id} removed successfully.`);
-
-        // Om du vill ta bort användaren helt från databasen.
         const url = `https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/users/${id}.json`;
         const options = {
             method: 'DELETE',
