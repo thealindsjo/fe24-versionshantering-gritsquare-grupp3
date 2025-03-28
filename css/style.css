@@ -199,4 +199,7 @@ footer {
     min-width: 500px;
     align-items: center;
   }
+  .message {
+    min-width: 250px;
+  }
 }
