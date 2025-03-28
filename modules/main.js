@@ -46,6 +46,7 @@ messageForm.addEventListener("submit", async (event) => {
   const userObj = {
     userName,
     userMessage,
+    banned: false,
   };
 
   const response = await postUser(userObj);
@@ -58,6 +59,7 @@ messageForm.addEventListener("submit", async (event) => {
     displayAllUsers(users);
   } else {
     console.error("Failed to post message");
+    alert("Failed to post message, please try again");
   }
 });
 
