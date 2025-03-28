@@ -75,7 +75,7 @@ section {
 }
 
 #logo-text {
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -194,12 +194,15 @@ footer {
     display: flex;
     justify-content: space-between;
   }
-
+  #logo-text {
+    font-size: 2rem;
+  }
   #messageColumn {
-    min-width: 500px;
+    min-width: 800px;
     align-items: center;
   }
   .message {
-    min-width: 250px;
+    min-width: 400px;
+    min-height: 350px;
   }
 }
