@@ -1,3 +1,50 @@
 ul {
   list-style-type: none;
 }
+
+.team-container {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.team-member {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 200px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+h5 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.text-muted {
+  font-size: 1rem;
+  color: #777;
+}
