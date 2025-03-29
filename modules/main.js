@@ -48,12 +48,11 @@ messageForm.addEventListener("submit", async (event) => {
 
   const users = await getAllUsers();
 
-  // Check if the username exists and if it's banned
-  const existingUser = Object.values(users).find(
-    (user) => user.userName === userName
+  const isBanned = Object.values(users).some(
+    (user) => user.userName === userName && user.banned
   );
-
-  if (existingUser && existingUser.banned) {
+  
+  if (isBanned) {
     alert("This username is banned, try again.");
     return;
   }

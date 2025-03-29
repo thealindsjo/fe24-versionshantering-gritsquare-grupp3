@@ -72,7 +72,7 @@ export function displayAllUsers(userObj) {
                     event.preventDefault();
                     const confirmBan = confirm("Do you want to ban this user?");
                     if (confirmBan) {
-                        await patchBanned(firebaseID, true);
+                        await patchBanned(userName.innerText, true);
                         const users = await getAllUsers();
                         displayAllUsers(users);
                     } else {

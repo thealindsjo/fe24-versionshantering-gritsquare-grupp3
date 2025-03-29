@@ -73,6 +73,8 @@ export async function patchBanned(id, banned){
 }
     **/
 
+
+/** 
 export async function patchBanned(id, banned) {
     console.log("Patching user:", id, "Banned:", banned);
 
@@ -100,3 +102,29 @@ export async function patchBanned(id, banned) {
         return null; 
     }
 }
+    **/
+
+export async function patchBanned(userName, bannedStatus) {
+    try {
+      const users = await getAllUsers();
+
+      const matchingUsers = Object.entries(users).filter(([id, user]) =>
+        user.userName === userName
+      );
+
+      const updates = matchingUsers.map(([id]) => {
+        return fetch(`https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/users/${id}.json`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ banned: bannedStatus }),
+        });
+      });
+  
+      await Promise.all(updates);
+      console.log(`Banned all users with name: ${userName}`);
+    } catch (error) {
+      console.error("Error patching banned status:", error);
+    }
+  }
