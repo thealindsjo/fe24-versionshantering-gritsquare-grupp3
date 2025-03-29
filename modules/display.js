@@ -89,8 +89,10 @@ export function displayAllUsers(userObj) {
     messageContainer.appendChild(likeButton);
     messageContainer.appendChild(dislikeButton);
 
-    // Befintlig funktion för ban och ta bort
+     //lägger till nyaste meddelanden längst upp utan att behöva ändra från objekt till array
     messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
+
+     // Befintlig funktion för ban och ta bort
 
     userHeader.addEventListener("click", async (event) => {
       event.preventDefault();
@@ -101,19 +103,20 @@ export function displayAllUsers(userObj) {
         banButton.innerText = "Ban";
         userHeader.appendChild(banButton);
         banButton.addEventListener("click", async (event) => {
-          event.preventDefault();
-          const confirmBan = confirm("Do you want to ban this user?");
-          if (confirmBan) {
-            await patchBanned(userName.innerText, true);
-            const users = await getAllUsers();
-            displayAllUsers(users);
-          } else {
-            const users = await getAllUsers();
-            displayAllUsers(users);
-          }
+            event.preventDefault();
+            const confirmBan = confirm("Do you want to ban this user?");
+            if (confirmBan) {
+                await patchBanned(userName.innerText, true);
+                const users = await getAllUsers();
+                displayAllUsers(users);
+            } else {
+                const users = await getAllUsers();
+                displayAllUsers(users);
+            }
         });
-      }
-    });
+    }
+});
+
 
     const removeButton = document.createElement("button");
     removeButton.classList.add("removeButton");
