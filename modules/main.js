@@ -48,14 +48,15 @@ messageForm.addEventListener("submit", async (event) => {
 
   const users = await getAllUsers();
 
-  const isBanned = Object.values(users).some(
-    (user) => user.userName === userName && user.banned
-  );
-  
-  if (isBanned) {
-    alert("This username is banned, try again.");
-    return;
-  }
+  const bannedList = await fetch("https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/bannedUsers.json")
+  .then(res => res.json());
+
+
+if (bannedList && bannedList[userName]) {
+  alert("This username is banned, try again.");
+  return;
+}
+
 
   const userObj = {
     userName,

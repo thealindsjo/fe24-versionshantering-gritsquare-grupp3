@@ -103,6 +103,8 @@ export async function patchBanned(id, banned) {
 }
     **/
 
+
+/** 
 export async function patchBanned(userName, bannedStatus) {
   try {
     const users = await getAllUsers();
@@ -130,6 +132,38 @@ export async function patchBanned(userName, bannedStatus) {
     console.error("Error patching banned status:", error);
   }
 }
+
+**/
+
+export async function patchBanned(userName, bannedStatus) {
+    try {
+        const url = `https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/bannedUsers/${userName}.json`;
+       
+        const options = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(bannedStatus),
+        };
+
+
+        const res = await fetch(url, options);
+
+
+        if (!res.ok) {
+            throw new Error(`Failed to update banned list: ${res.status} ${res.statusText}`);
+        }
+
+
+        console.log(`Updated ban status for: ${userName} ${bannedStatus}`);
+
+
+    } catch (error) {
+        console.error("Error updating banned list:", error);
+    }
+}
+
 
 /// Function to update like/dislike count in Firebase
 /// Takes userId and type (like or dislike) as arguments
