@@ -83,6 +83,7 @@ export function displayAllUsers(userObj) {
             }
         });
 
+
         //lägg till removeButton
         const removeButton = document.createElement("button");
         removeButton.classList.add("removeButton");
