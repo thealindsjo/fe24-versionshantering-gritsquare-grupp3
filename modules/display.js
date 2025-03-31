@@ -8,7 +8,7 @@ export const messageDiv = document.getElementById("messageColumn");
 
 // la till dislike och like knappar, Vill ni styla dom så är classnamnen "like-button" och "dislike-button"/Matti
 export function displayAllUsers(userObj) {
-  messageDiv.innerHTML = "";
+  // messageDiv.innerHTML = "";
 
   const colors = [
     "#FF5733",
@@ -22,6 +22,10 @@ export function displayAllUsers(userObj) {
   ];
 
   for (const firebaseID in userObj) {
+    if (document.getElementById(firebaseID)) {
+      continue;
+    }
+
     const messageContainer = document.createElement("div");
     messageContainer.className = "message";
     messageContainer.id = firebaseID;
@@ -89,8 +93,16 @@ export function displayAllUsers(userObj) {
     messageContainer.appendChild(likeButton);
     messageContainer.appendChild(dislikeButton);
 
-    // Befintlig funktion för ban och ta bort
     messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
+    // Ni kan ändra animationen här om ni vill. / Matti
+    anime({
+      targets: messageContainer,
+      opacity: [0, 1],
+      translateX: [-200, 0],
+      scale: [0.5, 1],
+      duration: 800,
+      easing: "easeOutCubic",
+    });
 
     userHeader.addEventListener("click", async (event) => {
       event.preventDefault();
