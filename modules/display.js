@@ -1,12 +1,9 @@
-import { getAllUsers, patchBanned } from "./firebase.js";
+import { getAllUsers, patchBanned, updateUserStatus } from "./firebase.js";
 import { updateLikeDislikeFirebase } from "./firebase.js";
-
-// import { ref, set } from "firebase/database"; // Antag att du använder Firebase Realtime Database
-// import { database } from "./firebase.js"; // Antag att du har din database-instans i firebase.js
+import { addPinFunctionality } from "./pin.js";
 
 export const messageDiv = document.getElementById("messageColumn");
 
-// la till dislike och like knappar, Vill ni styla dom så är classnamnen "like-button" och "dislike-button"/Matti
 export function displayAllUsers(userObj) {
   // messageDiv.innerHTML = "";
 
@@ -50,6 +47,7 @@ export function displayAllUsers(userObj) {
 
     messageContainer.appendChild(userHeader);
     messageContainer.appendChild(messageContent);
+    addPinFunctionality(messageContainer, messageDiv);
 
     // --- Like / Dislike knappar ---
     const likeButton = document.createElement("button");
@@ -93,6 +91,25 @@ export function displayAllUsers(userObj) {
     messageContainer.appendChild(likeButton);
     messageContainer.appendChild(dislikeButton);
 
+    // Lägg till en knapp för att uppdatera användarstatus
+    const statusButton = document.createElement("button");
+    statusButton.className = "status-button";
+    statusButton.innerText = "Change Status"; // Denna knapp låter administratören uppdatera statusen
+    userHeader.appendChild(statusButton);
+
+    statusButton.addEventListener("click", async () => {
+      const newStatus = prompt("Enter new status (e.g., 'active', 'inactive'):", "active");
+      if (newStatus) {
+        try {
+          const updatedUser = await updateUserStatus(firebaseID, newStatus);
+          console.log("Användarstatus uppdaterad:", updatedUser);
+          alert("User status updated successfully!");
+        } catch (error) {
+          console.error("Error updating user status:", error);
+        }
+      }
+    });
+
     messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
     // Ni kan ändra animationen här om ni vill. / Matti
     anime({
@@ -104,6 +121,7 @@ export function displayAllUsers(userObj) {
       easing: "easeOutCubic",
     });
 
+    // Befintlig funktion för att banna användare
     userHeader.addEventListener("click", async (event) => {
       event.preventDefault();
       document.querySelectorAll(".ban-button").forEach((btn) => btn.remove());
