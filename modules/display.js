@@ -1,5 +1,6 @@
 import { getAllUsers, patchBanned, updateUserStatus } from "./firebase.js";
 import { updateLikeDislikeFirebase } from "./firebase.js";
+import { addPinFunctionality } from "./pin.js";
 
 export const messageDiv = document.getElementById("messageColumn");
 
@@ -42,6 +43,7 @@ export function displayAllUsers(userObj) {
 
     messageContainer.appendChild(userHeader);
     messageContainer.appendChild(messageContent);
+    addPinFunctionality(messageContainer, messageDiv);
 
     // --- Like / Dislike knappar ---
     const likeButton = document.createElement("button");
