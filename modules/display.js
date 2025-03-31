@@ -5,7 +5,7 @@ import { addPinFunctionality } from "./pin.js";
 export const messageDiv = document.getElementById("messageColumn");
 
 export function displayAllUsers(userObj) {
-  messageDiv.innerHTML = "";
+  // messageDiv.innerHTML = "";
 
   const colors = [
     "#FF5733",
@@ -19,6 +19,10 @@ export function displayAllUsers(userObj) {
   ];
 
   for (const firebaseID in userObj) {
+    if (document.getElementById(firebaseID)) {
+      continue;
+    }
+
     const messageContainer = document.createElement("div");
     messageContainer.className = "message";
     messageContainer.id = firebaseID;
@@ -107,6 +111,15 @@ export function displayAllUsers(userObj) {
     });
 
     messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
+    // Ni kan ändra animationen här om ni vill. / Matti
+    anime({
+      targets: messageContainer,
+      opacity: [0, 1],
+      translateX: [-200, 0],
+      scale: [0.5, 1],
+      duration: 800,
+      easing: "easeOutCubic",
+    });
 
     // Befintlig funktion för att banna användare
     userHeader.addEventListener("click", async (event) => {
