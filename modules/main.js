@@ -1,6 +1,7 @@
 import { postUser, getAllUsers } from "./firebase.js";
 import { messageDiv, displayAllUsers } from "./display.js";
 import { initTheme } from "./theme.js";
+import { initSearch } from "./search.js";
 
 const toggleMenu = document.querySelector(".toggleMenu");
 const menu = document.querySelector(".menu");
@@ -8,6 +9,7 @@ const messageForm = document.getElementById("addMessage");
 
 // Initialize the theme functionality
 initTheme();
+initSearch();
 
 toggleMenu.addEventListener("click", () => {
   menu.classList.toggle("active");
@@ -48,15 +50,14 @@ messageForm.addEventListener("submit", async (event) => {
 
   const users = await getAllUsers();
 
-  const bannedList = await fetch("https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/bannedUsers.json")
-  .then(res => res.json());
+  const bannedList = await fetch(
+    "https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/bannedUsers.json"
+  ).then((res) => res.json());
 
-
-if (bannedList && bannedList[userName]) {
-  alert("This username is banned, try again.");
-  return;
-}
-
+  if (bannedList && bannedList[userName]) {
+    alert("This username is banned, try again.");
+    return;
+  }
 
   const userObj = {
     userName,

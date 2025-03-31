@@ -158,7 +158,7 @@ section {
 }
 
 .menu a:hover {
-  background-color: var(--hover-bg, #f0f0f0);
+  background-color: var(--hover-bg, #a5a5a5);
 }
 
 form {
