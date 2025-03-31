@@ -1,6 +1,7 @@
 @import url("home.css");
 @import url("aboutUs.css");
 @import url("contacts.css");
+@import url(pin.css);
 
 /* Theme variables */
 :root {
