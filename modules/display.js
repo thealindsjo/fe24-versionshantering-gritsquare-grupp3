@@ -1,12 +1,8 @@
-import { getAllUsers, patchBanned } from "./firebase.js";
+import { getAllUsers, patchBanned, updateUserStatus } from "./firebase.js";
 import { updateLikeDislikeFirebase } from "./firebase.js";
-
-// import { ref, set } from "firebase/database"; // Antag att du använder Firebase Realtime Database
-// import { database } from "./firebase.js"; // Antag att du har din database-instans i firebase.js
 
 export const messageDiv = document.getElementById("messageColumn");
 
-// la till dislike och like knappar, Vill ni styla dom så är classnamnen "like-button" och "dislike-button"/Matti
 export function displayAllUsers(userObj) {
   messageDiv.innerHTML = "";
 
@@ -89,11 +85,28 @@ export function displayAllUsers(userObj) {
     messageContainer.appendChild(likeButton);
     messageContainer.appendChild(dislikeButton);
 
-     //lägger till nyaste meddelanden längst upp utan att behöva ändra från objekt till array
+    // Lägg till en knapp för att uppdatera användarstatus
+    const statusButton = document.createElement("button");
+    statusButton.className = "status-button";
+    statusButton.innerText = "Change Status"; // Denna knapp låter administratören uppdatera statusen
+    userHeader.appendChild(statusButton);
+
+    statusButton.addEventListener("click", async () => {
+      const newStatus = prompt("Enter new status (e.g., 'active', 'inactive'):", "active");
+      if (newStatus) {
+        try {
+          const updatedUser = await updateUserStatus(firebaseID, newStatus);
+          console.log("Användarstatus uppdaterad:", updatedUser);
+          alert("User status updated successfully!");
+        } catch (error) {
+          console.error("Error updating user status:", error);
+        }
+      }
+    });
+
     messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
 
-     // Befintlig funktion för ban och ta bort
-
+    // Befintlig funktion för att banna användare
     userHeader.addEventListener("click", async (event) => {
       event.preventDefault();
       document.querySelectorAll(".ban-button").forEach((btn) => btn.remove());
@@ -103,20 +116,19 @@ export function displayAllUsers(userObj) {
         banButton.innerText = "Ban";
         userHeader.appendChild(banButton);
         banButton.addEventListener("click", async (event) => {
-            event.preventDefault();
-            const confirmBan = confirm("Do you want to ban this user?");
-            if (confirmBan) {
-                await patchBanned(userName.innerText, true);
-                const users = await getAllUsers();
-                displayAllUsers(users);
-            } else {
-                const users = await getAllUsers();
-                displayAllUsers(users);
-            }
+          event.preventDefault();
+          const confirmBan = confirm("Do you want to ban this user?");
+          if (confirmBan) {
+            await patchBanned(userName.innerText, true);
+            const users = await getAllUsers();
+            displayAllUsers(users);
+          } else {
+            const users = await getAllUsers();
+            displayAllUsers(users);
+          }
         });
-    }
-});
-
+      }
+    });
 
     const removeButton = document.createElement("button");
     removeButton.classList.add("removeButton");
