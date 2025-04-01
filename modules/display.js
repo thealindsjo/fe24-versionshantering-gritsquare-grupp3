@@ -52,6 +52,8 @@ export function displayAllUsers(userObj) {
     messageContainer.appendChild(userHeader);
     messageContainer.appendChild(messageContent);
     addPinFunctionality(messageContainer, messageDiv);
+    messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
+
 
     // --- Like / Dislike knappar ---
     const likeButton = document.createElement("button");
