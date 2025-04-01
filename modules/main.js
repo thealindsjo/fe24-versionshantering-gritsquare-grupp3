@@ -39,12 +39,33 @@ messageForm.addEventListener("submit", async (event) => {
 
 displayAllUsers(await getAllUsers());
 **/
+function check(str, subStr, caseSensitive = false) {
+  if (caseSensitive) 
+    return new RegExp(subStr).test(str);
+  return new RegExp(subStr, 'i').test(str);
+};
 
 messageForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const userName = document.getElementById("user-name").value;
   const userMessage = document.getElementById("user-message").value;
+  let profanitylistURL = "https://raw.githubusercontent.com/dsojevic/profanity-list/refs/heads/main/en.json";
+  let response1 = await fetch(profanitylistURL);
+    const json = await response1.json();
+
+    console.log(json);
+    
+  json.forEach(element => {
+
+    if(check(userMessage,element.match)){
+      alert("you have profanity in your message: "+element.id)
+      messageForm.message = userMessage
+      return
+    }
+ 
+  });
+
 
   console.log(userName, userMessage);
 
