@@ -69,6 +69,7 @@
   border: none;
   cursor: pointer;
   color: #333;
+  font-size: 1.7em;
 }
 
 .removeButton{
@@ -77,11 +78,7 @@
   right: 0;
 }
 
-.like-button i, .dislike-button i, .removeButton i {
-  font-size: 1.7em;
-}
-
-#board .removeButton:hover{
+.message button:hover{
   color: #666;
   background-color: none;
 }
