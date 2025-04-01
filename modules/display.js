@@ -121,16 +121,28 @@ if (userObj[firebaseID].pinned) {
       easing: "easeOutCubic",
     });
 
-    userHeader.addEventListener("click", async (event) => {
-      event.preventDefault();
-      document.querySelectorAll(".ban-button").forEach((btn) => btn.remove());
-      if (!userHeader.querySelector(".ban-button")) {
+        // Add ellipsis icon and ban button functionality
+        const ellipsisIcon = document.createElement("i");
+        ellipsisIcon.className = "fa-solid fa-ellipsis-vertical ellipsis-icon";
+        userHeader.appendChild(ellipsisIcon);
+
         const banButton = document.createElement("button");
         banButton.className = "ban-button";
         banButton.innerText = "Ban";
+        banButton.style.display = "none"; // Initially hide the button
         userHeader.appendChild(banButton);
+
+        ellipsisIcon.addEventListener("click", (event) => {
+            event.stopPropagation();
+            if (banButton.style.display === "none") {
+                banButton.style.display = "block";
+            } else {
+                banButton.style.display = "none";
+            }
+        });
+
         banButton.addEventListener("click", async (event) => {
-            event.preventDefault();
+            event.stopPropagation();
             const confirmBan = confirm("Do you want to ban this user?");
             if (confirmBan) {
                 await patchBanned(userName.innerText, true);
@@ -141,8 +153,6 @@ if (userObj[firebaseID].pinned) {
                 displayAllUsers(users);
             }
         });
-    }
-  });
 
 
 
