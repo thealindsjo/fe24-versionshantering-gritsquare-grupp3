@@ -1,7 +1,7 @@
 export function addPinFunctionality(messageContainer, messageDiv) {
     const pinButton = document.createElement("button");
     pinButton.className = "pin-button";
-    pinButton.innerText = "📌 Pin";
+    pinButton.innerHTML = '<i class="fa-solid fa-thumbtack" style="transform: rotate(45deg);"></i> Pin';
   
     let isPinned = false;
     let originalNextSibling = null;
@@ -11,11 +11,11 @@ export function addPinFunctionality(messageContainer, messageDiv) {
         originalNextSibling = messageContainer.nextSibling;
         messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
         messageContainer.classList.add("pinned");
-        pinButton.innerText = "📌 Unpin";
+        pinButton.innerHTML = '<i class="fa-solid fa-thumbtack"></i> Unpin';
         isPinned = true;
       } else {
         messageContainer.classList.remove("pinned");
-        pinButton.innerText = "📌 Pin";
+        pinButton.innerHTML = '<i class="fa-solid fa-thumbtack" style="transform: rotate(45deg);"></i> Pin';
         isPinned = false;
   
         if (
