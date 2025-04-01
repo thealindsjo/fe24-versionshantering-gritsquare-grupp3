@@ -134,6 +134,16 @@ section {
   align-self: flex-end;
 }
 
+.flash-green {
+  background-color: green;
+  transition: background-color 0.5s ease;
+}
+
+.flash-red {
+  background-color: red;
+  transition: background-color 0.5s ease;
+}
+
 .menu {
   display: none;
   flex-direction: column;
