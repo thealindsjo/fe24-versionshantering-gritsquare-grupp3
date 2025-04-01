@@ -135,12 +135,12 @@ section {
 }
 
 .flash-green {
-    background-color: green;
+    background-color: rgb(98, 225, 98);
     transition: background-color 0.5s ease;
 }
 
 .flash-red {
-    background-color: red;
+    background-color: rgb(253, 87, 87);
     transition: background-color 0.5s ease;
 }
 
