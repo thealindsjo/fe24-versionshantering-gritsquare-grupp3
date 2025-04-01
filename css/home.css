@@ -64,17 +64,24 @@
   --random-rotation: 2deg;
 }
 
-.removeButton {
+.like-button, .dislike-button, .removeButton {
   position: absolute;
   bottom: 0;
-  right: 0;
   background: none;
   border: none;
   cursor: pointer;
   color: #333;
 }
 
-.removeButton i {
+.removeButton{
+  right: 0;
+}
+
+.like-button{
+  right: 40%;
+}
+
+.like-button i, .dislike-button i, .removeButton i {
   font-size: 1.7em;
 }
 
