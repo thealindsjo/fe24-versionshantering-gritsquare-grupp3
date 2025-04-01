@@ -9,20 +9,22 @@ export const messageDiv = document.getElementById("messageColumn");
 
 // la till dislike och like knappar, Vill ni styla dom så är classnamnen "like-button" och "dislike-button"/Matti
 export function displayAllUsers(userObj) {
-  // messageDiv.innerHTML = "";
-
   const colors = [
-    "#FFB3BA", // Light Red
-    "#FFDFBA", // Light Orange
-    "#FFFFBA", // Light Yellow
-    "#BAFFC9", // Light Green
-    "#BAE1FF", // Light Blue
-    "#E2BAFF", // Light Purple
-    "#FFC8DD", // Pastel Pink
-    "#A0E7E5"  // Pastel Cyan
+    "#FFB3BA",
+    "#FFDFBA",
+    "#FFFFBA",
+    "#BAFFC9",
+    "#BAE1FF",
+    "#E2BAFF",
+    "#FFC8DD",
+    "#A0E7E5"
   ];
 
-  for (const firebaseID in userObj) {
+  const sortedEntries = Object.entries(userObj).sort(([, a], [, b]) => {
+    return (b.pinned === true) - (a.pinned === true);
+  });
+
+  for (const [firebaseID, userData] of sortedEntries) {
     if (document.getElementById(firebaseID)) {
       continue;
     }
@@ -30,6 +32,8 @@ export function displayAllUsers(userObj) {
     const messageContainer = document.createElement("div");
     messageContainer.className = "message";
     messageContainer.id = firebaseID;
+
+    messageContainer.dataset.pinned = userData.pinned || false;
 
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     messageContainer.style.setProperty("--random-color", randomColor);
@@ -39,33 +43,32 @@ export function displayAllUsers(userObj) {
 
     const userName = document.createElement("p");
     userName.className = "user-name";
-    userName.innerText = userObj[firebaseID].userName;
+    userName.innerText = userData.userName;
     userHeader.appendChild(userName);
 
     const messageContent = document.createElement("div");
     messageContent.className = "message-content";
 
     const userMessage = document.createElement("p");
-    userMessage.innerText = userObj[firebaseID].userMessage;
+    userMessage.innerText = userData.userMessage;
     messageContent.appendChild(userMessage);
 
     messageContainer.appendChild(userHeader);
     messageContainer.appendChild(messageContent);
     addPinFunctionality(messageContainer, messageDiv);
 
-    // --- Like / Dislike knappar ---
     const likeButton = document.createElement("button");
     likeButton.className = "like-button";
     likeButton.innerHTML = '<i class="fa-solid fa-heart"></i> ';
     const likeSpan = document.createElement("span");
-    likeSpan.innerText = userObj[firebaseID].like || "0";
+    likeSpan.innerText = userData.like || "0";
     likeButton.appendChild(likeSpan);
 
     const dislikeButton = document.createElement("button");
     dislikeButton.className = "dislike-button";
     dislikeButton.innerHTML = '<i class="fa-solid fa-heart-crack"></i> ';
     const dislikeSpan = document.createElement("span");
-    dislikeSpan.innerText = userObj[firebaseID].dislike || "0";
+    dislikeSpan.innerText = userData.dislike || "0";
     dislikeButton.appendChild(dislikeSpan);
 
     likeButton.addEventListener("click", async () => {
@@ -99,11 +102,14 @@ export function displayAllUsers(userObj) {
     });
 
     messageContainer.appendChild(likeButton);
-    messageContainer.appendChild(dislikeButton);
+messageContainer.appendChild(dislikeButton);
 
-     //lägger till nyaste meddelanden längst upp utan att behöva ändra från objekt till array
-    messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
-    // Ni kan ändra animationen här om ni vill. / Matti
+if (userObj[firebaseID].pinned) {
+  messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
+} else {
+  messageDiv.appendChild(messageContainer);
+}
+
     anime({
       targets: messageContainer,
       opacity: [0, 1],
@@ -112,8 +118,6 @@ export function displayAllUsers(userObj) {
       duration: 800,
       easing: "easeOutCubic",
     });
-
-     // Befintlig funktion för ban och ta bort
 
     userHeader.addEventListener("click", async (event) => {
       event.preventDefault();
@@ -136,7 +140,8 @@ export function displayAllUsers(userObj) {
             }
         });
     }
-});
+  });
+
 
 
     const removeButton = document.createElement("button");

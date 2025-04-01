@@ -211,3 +211,23 @@ export async function updateLikeDislikeFirebase(userId, type) {
     throw error;
   }
 }
+
+export async function updatePinStatusFirebase(messageId, isPinned) {
+  const url = `https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/users/${messageId}.json`;
+
+  const options = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ pinned: isPinned }),
+  };
+
+  try {
+    const res = await fetch(url, options);
+    if (!res.ok) throw new Error("Failed to update pin status");
+    console.log(`✅ Pin status updated for ${messageId}: ${isPinned}`);
+  } catch (err) {
+    console.error("🔥 Error updating pin status:", err);
+  }
+}
