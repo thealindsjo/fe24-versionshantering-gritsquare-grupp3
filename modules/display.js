@@ -75,8 +75,8 @@ export function displayAllUsers(userObj) {
           likeSpan.innerText = updated.like;
           dislikeSpan.innerText = updated.dislike;
 
-          likeButton.classList.add('flash-green');
-          setTimeout(() => likeButton.classList.remove('flash-green'), 500);
+          messageDiv.classList.add('flash-green');
+          setTimeout(() => messageDiv.classList.remove('flash-green'), 500);
         }
       } catch (error) {
         console.error(error);
@@ -90,8 +90,8 @@ export function displayAllUsers(userObj) {
           likeSpan.innerText = updated.like;
           dislikeSpan.innerText = updated.dislike;
 
-          dislikeButton.classList.add('flash-red');
-          setTimeout(() => dislikeButton.classList.remove('flash-red'), 500);
+          messageDiv.classList.add('flash-red');
+          setTimeout(() => messageDiv.classList.remove('flash-red'), 500);
         }
       } catch (error) {
         console.error(error);
