@@ -16,11 +16,6 @@
     transition: background-color 0.2s ease, color 0.2s ease;
   }
   
-  .pin-button:hover {
-    background-color: rgba(255, 215, 0, 0.2);
-    color: goldenrod;
-  }
-  
   .pinned {
     border: 2px solid gold;
     background-color: #fff9c4;
