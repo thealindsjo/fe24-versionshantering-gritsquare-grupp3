@@ -86,13 +86,6 @@
   background-color: none;
 }
 
-#controls-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
 #controls-container section {
   flex: 1;
 }
