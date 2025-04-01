@@ -56,14 +56,14 @@ export function displayAllUsers(userObj) {
     // --- Like / Dislike knappar ---
     const likeButton = document.createElement("button");
     likeButton.className = "like-button";
-    likeButton.innerText = "👍 ";
+    likeButton.innerHTML = '<i class="fa-solid fa-heart"></i> ';
     const likeSpan = document.createElement("span");
     likeSpan.innerText = userObj[firebaseID].like || "0";
     likeButton.appendChild(likeSpan);
 
     const dislikeButton = document.createElement("button");
     dislikeButton.className = "dislike-button";
-    dislikeButton.innerText = "👎 ";
+    dislikeButton.innerHTML = '<i class="fa-solid fa-heart-crack"></i> ';
     const dislikeSpan = document.createElement("span");
     dislikeSpan.innerText = userObj[firebaseID].dislike || "0";
     dislikeButton.appendChild(dislikeSpan);
