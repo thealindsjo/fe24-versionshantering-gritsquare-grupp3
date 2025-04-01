@@ -64,9 +64,7 @@
   --random-rotation: 2deg;
 }
 
-.like-button, .dislike-button, .removeButton {
-  position: absolute;
-  bottom: 0;
+.message button {
   background: none;
   border: none;
   cursor: pointer;
@@ -74,11 +72,9 @@
 }
 
 .removeButton{
+  position: absolute;
+  bottom: 0;
   right: 0;
-}
-
-.like-button{
-  right: 40%;
 }
 
 .like-button i, .dislike-button i, .removeButton i {
