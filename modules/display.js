@@ -175,6 +175,7 @@ export async function removeMessageById(id) {
     const res = await fetch(url, options);
     if (res.ok) {
       console.log(`User with ID: ${id} removed successfully.`);
+      document.getElementById(id)?.remove();
       const users = await getAllUsers();
       displayAllUsers(users);
     } else {
