@@ -57,7 +57,7 @@ messageForm.addEventListener("submit", async (event) => {
     console.log(json);
     
   json.forEach(element => {
-
+//hello world!!!!
     if(check(userMessage,element.match=="sh*i*t"? "shit" : element.match )){
       alert("you have profanity in your message: "+element.id+"  matchin on:"+element.match)
       messageForm.message = userMessage
