@@ -81,7 +81,7 @@
   font-size: 1.7em;
 }
 
-#board .removeButton:hover{
+.message button:hover{
   color: #666;
   background-color: none;
 }

@@ -56,6 +56,8 @@ export function displayAllUsers(userObj) {
     messageContainer.appendChild(userHeader);
     messageContainer.appendChild(messageContent);
     addPinFunctionality(messageContainer, messageDiv);
+    messageDiv.insertBefore(messageContainer, messageDiv.firstChild);
+
 
     const likeButton = document.createElement("button");
     likeButton.className = "like-button";
