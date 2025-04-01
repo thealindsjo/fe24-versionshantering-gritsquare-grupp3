@@ -8,14 +8,14 @@ export function displayAllUsers(userObj) {
   // messageDiv.innerHTML = "";
 
   const colors = [
-    "#FF5733",
-    "#33FF57",
-    "#3357FF",
-    "#FF33A8",
-    "#FFC300",
-    "#DAF7A6",
-    "#C70039",
-    "#900C3F",
+    "#FFB3BA", // Light Red
+    "#FFDFBA", // Light Orange
+    "#FFFFBA", // Light Yellow
+    "#BAFFC9", // Light Green
+    "#BAE1FF", // Light Blue
+    "#E2BAFF", // Light Purple
+    "#FFC8DD", // Pastel Pink
+    "#A0E7E5"  // Pastel Cyan
   ];
 
   for (const firebaseID in userObj) {
