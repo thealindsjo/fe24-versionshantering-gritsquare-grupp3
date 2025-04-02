@@ -2,6 +2,7 @@ import { postUser, getAllUsers } from "./firebase.js";
 import { messageDiv, displayAllUsers } from "./display.js";
 import { initTheme } from "./theme.js";
 import { initSearch } from "./search.js";
+import { shake } from "./shakemessage.js";
 
 const toggleMenu = document.querySelector(".toggleMenu");
 const menu = document.querySelector(".menu");
