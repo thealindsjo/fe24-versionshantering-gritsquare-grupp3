@@ -18,6 +18,7 @@
     --button-text: #f9f9f9;
     --button-hover-bg: #e4e4e4;
     --button-hover-text: #000;
+    --team-bg: #f9f9f9;
 }
 
 .dark-theme {
@@ -32,6 +33,7 @@
     --button-text: #f9f9f9;
     --button-hover-bg: #888;
     --button-hover-text: #fff;
+    --team-bg: #777;
 }
 
 * {
@@ -173,7 +175,6 @@ section {
     background-color: var(--hover-bg, #a5a5a5);
 }
 
-/* Lägg till denna stil längst ner i din CSS-fil */
 .ellipsis-icon {
     cursor: pointer;
     padding: 5px 10px;
@@ -284,6 +285,11 @@ footer {
 
 .theme-toggle:hover {
     transform: rotate(15deg);
+}
+
+.team-member{
+    background-color: var(--team-bg);
+    color: var(--text-color)
 }
 
 @media screen and (min-width: 480px) {
