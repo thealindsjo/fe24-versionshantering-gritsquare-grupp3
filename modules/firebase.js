@@ -18,6 +18,23 @@ export async function getAllUsers() {
     return null;
   }
 }
+export async function getAllUserCredentials() {
+  const url = "https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/" + "credentials.json";
+
+  try {
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch users: ${res.status} ${res.statusText}`);
+    }
+
+    const userObj = await res.json();
+    return userObj;
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return null;
+  }
+}
 
 export async function postUser(user) {
   const url = BaseUrl + ".json";
