@@ -1,35 +1,39 @@
 # fe24-versionshantering-gritsquare-grupp3
 
-# 🌟 Grit Message - Interactive Message Board
+# Grit Message - Interactive Message Board
 
-## 🚀 Overview
+## Overview
 Grit Message is an interactive message board application that allows users to post messages, engage with content through likes/dislikes, and utilize features like searching, pinning, and theme customization.
 
 ---
 
-## 📝 Features
-### 💬 Message Posting
+## Features
+### Message Posting
 - Share your thoughts with a username and message content.
 
-### 👍👎 Interactive Engagement
+### Interactive Engagement
 - Like or dislike messages with visual feedback.
+- Animated color flashes when interacting.
 
-### 📌 Message Management
+### Message Management
 - Pin important messages to the top for easy access.
 - Remove messages with a smooth, satisfying animation.
+- Animation when loading message.
+- Shake animation when removing messages.
 
-### 🌙💡 User Experience
+### User Experience
 - Dark/light mode toggle with persistent settings.
 - Real-time search filtering across usernames and message content.
 - Random colorful message cards for added visual appeal.
 
-### 🚫 Moderation
+### Moderation
 - Ban problematic users.
 - Automatic profanity filter to ensure appropriate content.
+- Remove button that removes messages from database.
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 - Vanilla JavaScript (ES6+)
 - Firebase Realtime Database
 - Anime.js for animations
@@ -39,7 +43,7 @@ Grit Message is an interactive message board application that allows users to po
 
 ---
 
-## 📝 Installation and Setup
+## Installation and Setup
 1. Clone the repository:
    ```bash
    git clone https://github.com/thealindsjo/fe24-versionshantering-gritsquare-grupp3
@@ -56,7 +60,7 @@ Grit Message is an interactive message board application that allows users to po
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 ```
 ├── modules               # JavaScript modules for different functionality
 │   ├── display.js         # Handles message rendering
@@ -69,32 +73,32 @@ Grit Message is an interactive message board application that allows users to po
 
 ---
 
-## 📚 Usage
-### ✏️ Post a Message
+## Usage
+### Post a Message
 1. Enter your name and message in the form.
 2. Click "Lägg till" to submit.
 
-### 💖 Interact with Messages
+### Interact with Messages
 - Click the heart icon to like a message.
 - Click the broken heart icon to dislike.
 - Use the pin button to highlight important messages.
 - Delete messages using the trash can icon.
 
-### 🔍 Search Messages
+### Search Messages
 - Type in the search box to filter messages by username or content.
 - Results update in real-time as you type.
 
-### 🌗 Change Theme
+### Change Theme
 - Click the moon/sun icon to toggle between dark and light mode.
 
 ---
 
-## 👥 Contributors
+## Contributors
 - Thea - Developer
 - Linn - Developer
 - Kim - Developer
 - Sylvester - Developer
 
-## 📄 License
+## License
 This project is licensed under the MIT License.
 

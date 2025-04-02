@@ -1,6 +1,7 @@
 import { getAllUsers, patchBanned } from "./firebase.js";
 import { updateLikeDislikeFirebase } from "./firebase.js";
 import { addPinFunctionality } from "./pin.js";
+import { shake } from "./shake.js"; 
 
 // import { ref, set } from "firebase/database"; // Antag att du använder Firebase Realtime Database
 // import { database } from "./firebase.js"; // Antag att du har din database-instans i firebase.js
@@ -188,6 +189,7 @@ export function displayAllUsers(userObj) {
         messageContainer.appendChild(removeButton);
         removeButton.addEventListener("click", async () => {
             console.log(firebaseID);
+            shake();  
             await removeMessageById(firebaseID);
             const allMessages = document.querySelectorAll(".message");
             allMessages.forEach((message) => {
