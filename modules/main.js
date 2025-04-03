@@ -103,3 +103,12 @@ messageForm.addEventListener("submit", async (event) => {
 });
 
 displayAllUsers(await getAllUsers());
+
+/// Message Character Counter
+const messageInput = document.getElementById("user-message");
+const charCounter = document.getElementById("char-counter");
+
+messageInput.addEventListener("input", () => {
+  const currentLength = messageInput.value.length;
+  charCounter.textContent = `${currentLength}/200 characters`;
+});
