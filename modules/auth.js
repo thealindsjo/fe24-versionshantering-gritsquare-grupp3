@@ -9,7 +9,7 @@ export async function loginUser(username, password) {
     console.log(users[key].password );
     console.log(users[key].username );
     
-    if(users[key].password == password && users[key].username == username )
+    if(users[key].password == password && users[key].username == username ) alert(`logging in: ${  key }`)
       localStorage.setItem("loggedInUser", username);
       
       window.location.href = "index.html";
@@ -22,7 +22,6 @@ export async function loginUser(username, password) {
     if (users[key].password === password && users[key].username === username) {
       alert(`Login successful! Redirecting...`);
       
-
       localStorage.setItem("loggedInUser", username);
       
       window.location.href = "index.html";
