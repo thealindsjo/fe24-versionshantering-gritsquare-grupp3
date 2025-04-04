@@ -3,14 +3,11 @@ import { updateLikeDislikeFirebase } from "./firebase.js";
 import { addPinFunctionality } from "./pin.js";
 import { shake } from "./shake.js"; 
 
-// import { ref, set } from "firebase/database"; // Antag att du använder Firebase Realtime Database
-// import { database } from "./firebase.js"; // Antag att du har din database-instans i firebase.js
-
 export const messageDiv = document.getElementById("messageColumn");
 
 // la till dislike och like knappar, Vill ni styla dom så är classnamnen "like-button" och "dislike-button"/Matti
 export function displayAllUsers(userObj) {
-    // Clear existing messages
+
     messageDiv.innerHTML = "";
 
     const colors = [
@@ -158,7 +155,7 @@ export function displayAllUsers(userObj) {
         const banButton = document.createElement("button");
         banButton.className = "ban-button";
         banButton.innerText = "Ban";
-        banButton.style.display = "none"; // Initially hide the button
+        banButton.style.display = "none";
         userHeader.appendChild(banButton);
 
         ellipsisIcon.addEventListener("click", (event) => {
