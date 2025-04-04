@@ -15,30 +15,6 @@ toggleMenu.addEventListener("click", () => {
   menu.classList.toggle("active");
 });
 
-/** 
-messageForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  var audio = new Audio('audio/pop-feature.mp3');
-  audio.play();
-
-  const userName = document.getElementById("user-name").value;
-  const userMessage = document.getElementById("user-message").value;
-
-  console.log(userName, userMessage);
-
-  const userObj = {
-    userName,
-    userMessage,
-  };
-  await postUser(userObj);
-  const users = await getAllUsers();
-  displayAllUsers(users);
-  //await postMessage(Obj);
-});
-
-displayAllUsers(await getAllUsers());
-**/
 function check(str, subStr, caseSensitive = false) {
   if (caseSensitive) 
     return new RegExp(subStr).test(str);
@@ -57,7 +33,7 @@ messageForm.addEventListener("submit", async (event) => {
     console.log(json);
     
   json.forEach(element => {
-//hello world!!!!
+
     if(check(userMessage,element.match=="sh*i*t"? "shit" : element.match )){
       alert("you have profanity in your message: "+element.id+"  matchin on:"+element.match)
       messageForm.message = userMessage
@@ -65,9 +41,6 @@ messageForm.addEventListener("submit", async (event) => {
     }
  
   });
-
-
-  console.log(userName, userMessage);
 
   const users = await getAllUsers();
 
