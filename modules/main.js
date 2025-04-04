@@ -19,33 +19,38 @@ function check(str, subStr, caseSensitive = false) {
   if (caseSensitive) return new RegExp(subStr).test(str);
   return new RegExp(subStr, "i").test(str);
 }
-
+async function profanityCheckAndPost(message) {
+  try {
+      const res = await fetch('https://vector.profanity.dev', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message }),
+      });
+      if (!res.ok)  throw new Error(`HTTP error! status: ${res.status}`);
+      
+      const data = await res.json();
+      console.log(data)
+     if(data.isProfanity == true){
+      alert("you have profanity in your message!!! : \n"+data.flaggedFor );
+      return true
+     }
+     else
+      return  false
+     
+  } catch (error) {
+      console.error("Error checking profanity:", error)
+      return false;
+  }
+}
 messageForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const userName = document.getElementById("user-name").value;
   const userMessage = document.getElementById("user-message").value;
-  let profanitylistURL =
-    "https://raw.githubusercontent.com/dsojevic/profanity-list/refs/heads/main/en.json";
-  let response1 = await fetch(profanitylistURL);
-  const json = await response1.json();
 
-  console.log(json);
-
-  json.forEach((element) => {
-    if (
-      check(userMessage, element.match == "sh*i*t" ? "shit" : element.match)
-    ) {
-      alert(
-        "you have profanity in your message: " +
-          element.id +
-          "  matchin on:" +
-          element.match
-      );
-      messageForm.message = userMessage;
-      return;
-    }
-  });
+  if(await profanityCheckAndPost(userMessage) )  {
+    return
+  }
 
   const users = await getAllUsers();
 
