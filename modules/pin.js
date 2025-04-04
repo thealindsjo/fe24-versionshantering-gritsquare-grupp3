@@ -1,11 +1,12 @@
 // Leons Feature
 
-import { updatePinStatusFirebase } from './firebase.js';
+import { updatePinStatusFirebase } from "./firebase.js";
 
 export function addPinFunctionality(messageContainer, messageDiv) {
   const pinButton = document.createElement("button");
   pinButton.className = "pin-button";
-  pinButton.innerHTML = '<i class="fa-solid fa-thumbtack" style="transform: rotate(45deg);"></i> Pin';
+  pinButton.innerHTML =
+    '<i class="fa-solid fa-thumbtack" style="transform: rotate(45deg);"></i> Pin';
 
   let isPinned = messageContainer.dataset.pinned === "true";
   let originalNextSibling = null;
@@ -27,7 +28,8 @@ export function addPinFunctionality(messageContainer, messageDiv) {
       pinButton.innerHTML = '<i class="fa-solid fa-thumbtack"></i> Unpin';
     } else {
       messageContainer.classList.remove("pinned");
-      pinButton.innerHTML = '<i class="fa-solid fa-thumbtack" style="transform: rotate(45deg);"></i> Pin';
+      pinButton.innerHTML =
+        '<i class="fa-solid fa-thumbtack" style="transform: rotate(45deg);"></i> Pin';
 
       if (
         originalNextSibling &&

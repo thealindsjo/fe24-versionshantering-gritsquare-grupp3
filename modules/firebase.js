@@ -19,7 +19,9 @@ export async function getAllUsers() {
   }
 }
 export async function getAllUserCredentials() {
-  const url = "https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/" + "credentials.json";
+  const url =
+    "https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/" +
+    "credentials.json";
 
   try {
     const res = await fetch(url);
@@ -63,44 +65,38 @@ export async function postUser(user) {
 }
 
 export async function patchBanned(userName, bannedStatus) {
-    try {
-        const url = `https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/bannedUsers/${userName}.json`;
-       
-        const options = {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(bannedStatus),
-        };
+  try {
+    const url = `https://gritsquare-default-rtdb.europe-west1.firebasedatabase.app/bannedUsers/${userName}.json`;
 
+    const options = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bannedStatus),
+    };
 
-        const res = await fetch(url, options);
+    const res = await fetch(url, options);
 
-
-        if (!res.ok) {
-            throw new Error(`Failed to update banned list: ${res.status} ${res.statusText}`);
-        }
-
-
-        console.log(`Updated ban status for: ${userName} ${bannedStatus}`);
-
-
-    } catch (error) {
-        console.error("Error updating banned list:", error);
+    if (!res.ok) {
+      throw new Error(
+        `Failed to update banned list: ${res.status} ${res.statusText}`
+      );
     }
-}
 
+    console.log(`Updated ban status for: ${userName} ${bannedStatus}`);
+  } catch (error) {
+    console.error("Error updating banned list:", error);
+  }
+}
 
 /// Function to update like/dislike count in Firebase
 /// Takes userId and type (like or dislike) as arguments
 /// Returns the updated like and dislike counts
 export async function updateLikeDislikeFirebase(userId, type) {
- 
   const url = `${BaseUrl}/${userId}.json`;
-    
+
   try {
-   
     const res = await fetch(url);
     const data = await res.json();
 
@@ -108,18 +104,15 @@ export async function updateLikeDislikeFirebase(userId, type) {
       throw new Error("User not found");
     }
 
-    
     let newLike = data.like || 0;
     let newDislike = data.dislike || 0;
 
-    
     if (type === "like") {
       newLike++;
     } else if (type === "dislike") {
       newDislike++;
     }
 
-   
     const patchRes = await fetch(url, {
       method: "PATCH",
       headers: {
