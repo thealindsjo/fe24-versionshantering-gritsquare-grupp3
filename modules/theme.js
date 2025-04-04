@@ -1,4 +1,3 @@
-
 // Theme Module - Handles dark/light mode functionality
 
 function createThemeToggle() {
@@ -22,7 +21,6 @@ function createThemeToggle() {
   document.body.classList.toggle("dark-theme", savedTheme === "dark");
 
   themeToggle.addEventListener("click", () => {
-
     const isDarkMode = document.body.classList.toggle("dark-theme");
 
     themeToggle.innerHTML = isDarkMode
