@@ -49,7 +49,7 @@ Grit Message is an interactive message board application that allows users to po
 ## Project Structure
 ```
 ├── audio
-│   ├── pop-feature.mp3
+│   └── pop-feature.mp3
 ├── css
 │   ├── aboutUs.css        # css for about us page
 │   ├── contacts.css       # css for contacts page
@@ -57,7 +57,7 @@ Grit Message is an interactive message board application that allows users to po
 │   ├── login.css          # css for login page
 │   ├── pin.css            # css for pin feature
 │   ├── shake.css          # css for shake feature
-│   ├── style.css          # General style
+│   └── style.css          # General style
 ├── img
 ├── modules             # JavaScript modules for different functionality
 │   ├── auth.js            # Log in
